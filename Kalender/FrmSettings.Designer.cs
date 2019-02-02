@@ -169,7 +169,7 @@
             this.groupBox2.Size = new System.Drawing.Size(213, 72);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "StandbyMode";
+            this.groupBox2.Text = "Standby Mode";
             // 
             // FrmSettings
             // 
