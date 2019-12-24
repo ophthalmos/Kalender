@@ -79,7 +79,7 @@
             this.linkLabel.TabStop = true;
             this.linkLabel.Text = "Aufgabenplanung öffnen";
             this.linkLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
+            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
             // 
             // FrmHelp
             // 

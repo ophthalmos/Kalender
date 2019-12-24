@@ -1,28 +1,11 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Kalender
 {
-    internal static class NativeMethods
-    {
-        internal enum Modifiers : uint { Alt = 0x0001, Control = 0x0002, Shift = 0x0004, Win = 0x0008 }
-        internal const int HOTKEY_ID = 42;
-        internal const int WM_HOTKEY = 0x312;
-        //internal const int WM_RBUTTONUP = 0x0205;
-        //internal const int WM_NCRBUTTONDOWN = 0x00A4; // when the user presses the right mouse button while the cursor is within the nonclient area of a window
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool UnregisterHotKey(IntPtr hWnd, int id);
-    }
-
-    class Utilities
+    internal class Utilities
     {
         internal static bool SetClipboardText(string text)
         {
@@ -31,25 +14,19 @@ namespace Kalender
                 Clipboard.SetDataObject(text, false, 5, 250);
                 return true;
             }
-            catch { return false; }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch (ExternalException) { return false; }
+#pragma warning restore CA1031 // Do not catch general exception types
         }
 
-        internal static void CenterMouseOverControl(Control ctl, int offsetY)
-        {// -45 to put it to ToDayDate; Cursor.Position = contextMenu.PointToScreen(new Point(contextMenu.Width / 2, 10));
-            Cursor.Position = ctl.PointToScreen(new Point((ctl.Width) / 2, ((ctl.Height) / 2) + offsetY));
-        }
+        internal static void CenterMouseOverControl(Control ctl, int offsetY) { Cursor.Position = ctl.PointToScreen(new Point((ctl.Width) / 2, ((ctl.Height) / 2) + offsetY)); }
 
         internal struct DateDiff { public int years, months, days; }
 
         internal static DateDiff CalcDateDiff(DateTime d1, DateTime d2)
         {// toDate muss immer vor fromDate liegen (toDate < fromDate), ansonsten liefert die Funktion falsche Werte!
             int years, months, days;
-            if (d2 < d1)
-            {
-                DateTime foo = d1;
-                d1 = d2;
-                d2 = foo;
-            }
+            if (d2 < d1) { (d1, d2) = (d2, d1); }; // C# 7 introduced tuples which enables swapping two variables without a temporary one:
             years = d2.Year - d1.Year;
             DateTime dt = d1.AddYears(years);
             if (dt > d2)

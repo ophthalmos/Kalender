@@ -11,7 +11,7 @@ namespace Kalender
         {
             InitializeComponent();
             TopMost = topMost;
-            Text = "Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Text = Application.ProductName + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void FrmHelp_Click(object sender, EventArgs e) { Close(); }
@@ -27,10 +27,10 @@ namespace Kalender
 
         private void LabelLine_Click(object sender, EventArgs e) { Close(); }
 
-        private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try { Process.Start("taskschd.msc"); }
-            catch (Exception ex) { MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (InvalidOperationException ex) { MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
     }
