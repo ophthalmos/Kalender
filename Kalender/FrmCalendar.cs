@@ -136,7 +136,7 @@ namespace Kalender
         }   // Trick to show previous month (default ist actual and future month); reset to default 31.12.9998 later
 
         private void TimerRunOnce_Tick(object sender, EventArgs e)
-        {// Schreibt etwas zeitverzögert die Feiertage in die BoldedDates-Eigenschaft
+        {// Schreibt etwas zeitverzögert die Feiertage in die BoldedDates-Eigenschaft (Workaround)
             timerRunOnce.Stop(); //tooltipFixDays = annualFixDays.ToDictionary(x => new DateTime(currentYear, x.Key.Month, x.Key.Day), x => x.Value);
             tooltipFixDays = ClsBoldedDays.GetAnnualDays(currentYear);
             Dictionary<DateTime, string> boldedMobileDays = ClsBoldedDays.GetMobileDays(currentYear, varTooltipText);
