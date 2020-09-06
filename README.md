@@ -11,4 +11,4 @@ Mit Hilfe der Tastenkombination "Strg + Win + K" oder durch einen Mausklick auf 
 ![](https://img.shields.io/github/downloads/ophthalmos/kalender/latest/total.svg?style=flat)
 ![](https://img.shields.io/github/license/ophthalmos/kalender.svg?style=flat)
 
-Neuere Versionen: [www.ophthalmostar.de/freeware](https://www.ophthalmostar.de/freeware/#kalender)
+Die neueste Version finden Sie zum Download auf: [www.ophthalmostar.de/freeware](https://www.ophthalmostar.de/freeware/#kalender)
