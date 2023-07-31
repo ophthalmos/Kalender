@@ -1,0 +1,9 @@
+Im Anschluss an die Installation wird das Programm gestartet, allerdings im minimierten Zustand!
+
+Klicken Sie auf das Taskleistensymbol im Infobereich oder drücken die Tastenkombination »Strg+Win+K«, um den Kalender anzuzeigen.
+
+Der Kalender bietet die Möglichkeit, das Datum in andere Anwendungen einzutragen. Dazu muss das Programm mit Administratorrechten gestartet werden.
+
+Damit das Programm automatisch bei der Benutzeranmeldung mit diesen Rechten startet, erstellt das Setup-Programm eine Windows-Aufgabe im Basisverzeichnis der Aufgabenplanungsbibliothek unter dem Namen »Kalender«.
+
+Selbstverständlich wird die Aufgabe durch das Deinstallationsprogramm gelöscht.
